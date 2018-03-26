@@ -1,0 +1,14 @@
+<div>
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean">
+        <div class="container"><a class="navbar-brand" href="/home"><i class="fa fa-gears"></i> InciManager </a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"  sec:authorize="isAuthenticated()"><a class="nav-link" href="/incidences/list"> <i class="fa fa-list-ul"></i> Mis incidencias</a></li>
+                    <li class="nav-item" role="presentation"  sec:authorize="isAuthenticated()"><a class="nav-link" href="/incidences/add"><i class="fa fa-plus-circle"></i> Enviar incidencia</a></li>
+                    <li class="nav-item" role="presentation"  sec:authorize="isAuthenticated()"><a class="nav-link" href="/logout"><i class="icon ion-log-out"></i> Cerrar sesión</a></li>
+                    <li class="nav-item" role="presentation"  sec:authorize="!isAuthenticated()"><a class="nav-link" href="/login"><i class="icon ion-log-in"></i> Iniciar sesión</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

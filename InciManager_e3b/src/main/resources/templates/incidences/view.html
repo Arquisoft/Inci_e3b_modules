@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="fragments/head"/>
+<body>
+<div th:replace="fragments/navbar"/>
+<div class="super-wrapper">
+    <div class="clean-wrapper">
+        <h2 class="sr-only">Add incidence</h2>
+        <div class="illustration">
+            <h1><i class="fa fa-gears"></i> Detalles incidencia</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <p>Incidencia número: <span class="btn btn-secondary" th:text="${incidence.id}">12</span></p>
+                <p>Estado: <span class="btn btn-warning" th:text="${incidence.status}">ABIERTA</span></p>
+                <p>Operario asignado: <span th:text="${incidence.operario}">Benjamín</span>.</p>
+                <p>Localización: <span th:text="${incidence.location}">43.6735, 58.2452</span></p>
+                <p>Fecha de caducidad: <span th:text="${incidence.expiration}">ninguna</span>.</p>
+                <p>Etiquetas:</p>
+                <ul>
+                    <li th:each="label : ${incidence.labels}"><span th:text="${label}">gotera</span></li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <h2>Nombre: <span th:text="${incidence.incidenceName}">Gotera en un techo</span></h2>
+                <p th:text="${incidence.description}">Descripción: Debido a una rotura de cañería</p>
+                <hr />
+                <h4>Comentarios:</h4>
+                <ul>
+                    <li th:each="comment: ${incidence.comments}"><span th:text="${comment}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultrices ligula vel nisi ultricies
+                        gravida. Pellentesque id scelerisque diam, euismod dictum metus.</span>
+                    </li>
+                </ul>
+                <hr />
+                <h5>Otros valores:</h5>
+                <ul>
+                    <li th:each="value : ${incidence.others}"><span th:text="${value}">casa muy vieja</span></li>
+                </ul>
+            </div>
+            <!--
+                    <tr th:each="incidence : ${incidenceList}">
+                        <td th:text="${incidence.status}">ABIERTA</td>
+                        <td th:text="${incidence.incidenceName}">Gotera en el techo</td>
+                        <td th:text="${incidence.description}">Debido a una rotura de cañería</td>
+                        <td th:text="${incidence.location}">43.6735, 58.2452</td>
+                        <td><span th:each="label : ${incidence.labels}">
+                                <span th:text="${label}">gotera</span>,
+                            </span>
+                        </td>
+                    </tr>
+            -->
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

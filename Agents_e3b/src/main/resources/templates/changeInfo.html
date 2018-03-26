@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+ 	<meta charset="UTF-8"/>
+ 	<title>Cambiar contraseña</title>
+	<link rel="stylesheet" type="text/css" href="/templates/css/styles.css"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+</head>
+<body>
+<main class="container">
+<h1>Cambiar contraseña</h1>
+<form method="POST" action="confirmPassword" >
+	<table>
+		<tr>
+			<td><strong><label for="password">Contraseña: </label></strong></td>
+			<td><input class="form-control" type="password" name="password" /></td>
+		</tr>
+		<tr>
+			<td><strong><label for="newPassword">Nueva contraseña: </label></strong></td>
+			<td><input class="form-control" type="password" name="newPassword"/></td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="submit" class="btn btn-primary" name="confirmarCambio" value="Confirmar cambio"/></td>
+		</tr>
+	</table>
+</form>
+</main>
+</body>
+</html>

@@ -1,0 +1,18 @@
+main{
+    margin-top:4em;
+}
+
+h1{
+    margin-bottom: 0.6em;
+}
+.login_page{
+    text-align: center;
+}
+
+.form-group{
+    display: inline-block;
+}
+
+.btn_enviar{
+    margin-top: 1em;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head th:include="fragments/head">
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+</head>
+<body>
+	<nav th:replace="fragments/nav" />
+	<div class="container">
+		<h1>Incidencia</h1>
+		<ul>
+			<li>Nombre de la incidencia: <i
+				th:text="${incidencia.incidenceName}"></i>
+			</li>
+			<li>Descripcion: <i th:text="${incidencia.description}"></i>
+			</li>
+			<li>Localizacion: <i th:text="${incidencia.location}"></i>
+			</li>
+		</ul>
+		<div class="container-gestor">
+			<h2>Gestionar Incidencia</h2>
+			
+			<form class="form-horizontal" method="post" th:action="@{/incidencias/update/{id}(id=${incidencia.id})}">
+				<div class="form-group">
+					<label class="control-label col-sm-2" for=estado">Estado:</label>
+					<div class="col-sm-10">
+						<select id="estado" class="form-control" name="estado">
+							<option th:each="estado : ${estados}" th:value="${estado}"
+								th:text="${estado}"></option>
+						</select>
+					</div>
+				</div>
+				<br>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="comentario">Comentario:</label>
+					<div class="col-sm-10">
+						<textarea rows="5" cols="70" class="form-control" name="comentario"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-primary">Actualizar</button>
+				</div>
+			</div>
+			</form>
+			
+		</div>
+		<p>Mapa</p>
+
+
+		<div id="map" style="width: 400px; height: 400px;"></div>
+
+
+		<script th:inline="javascript">
+    /*<![CDATA[*/
+			"use strict";
+			
+			var mapa;
+    function iniciar(){
+        navigator.geolocation.getCurrentPosition(mostrar,errores);
+    }
+    function mostrar(posicion){
+    	var cadena=[[${incidencia.location}]].split(",");
+		var latitud=parseFloat(cadena[0]);
+		var longitud=parseFloat(cadena[1]);
+        var ubicacion=new google.maps.LatLng(latitud, longitud);
+        var mapaOpciones ={
+            zoom:2,
+            center: ubicacion,
+            mapTypeId:  google.maps.MapTypeId.TERRAIN
+        };
+    
+        mapa= new google.maps.Map(document.getElementById('map'), mapaOpciones);
+        var marcador = new google.maps.Marker({
+            position: ubicacion,
+            map:mapa
+        });
+        marcador.setMap(mapa);
+    }
+    function errores(error){
+        alert('Error: '+error.code+' '+error.message);
+    }
+    iniciar();
+     
+		/*]]>*/
+	</script>
+		<script
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRXGSkiOeVhjBkV0XKN5pSC8KVzbUhfQo">
+        </script>
+	</div>
+</body>
+
+</html>

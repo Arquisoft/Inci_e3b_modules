@@ -1,0 +1,46 @@
+<!-- nav.html -->
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target="#myNavbar">
+				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<img src="/img/Dashboard_Item_logo.png" alt="logo" />
+		</div>
+		<div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav" >
+				<li sec:authorize="isAuthenticated()"><a href="/home">Home</a></li>
+				
+				<li sec:authorize="isAuthenticated()" id="marks-menu" class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#"  > Incidencias <span
+						class="caret"></span>
+				</a>
+					<ul class="dropdown-menu">
+						<li sec:authorize="isAuthenticated()"><a
+							href="/incidencias/list" >Mis Incidencias</a></li>
+						<li><a href="/incidencias/listPeligrosas">Incidencias Peligrosas</a></li>
+					</ul></li>
+							
+			</ul>
+			
+			
+			<ul class="nav navbar-nav navbar-right">
+				<li sec:authorize="!isAuthenticated()"> <a href="/login"> 
+				<span
+						class="glyphicon glyphicon-user"></span> Login
+				</a></li>
+				<li sec:authorize="isAuthenticated()"><a href="/logout"
+					> <span
+						class="glyphicon glyphicon-user"></span>Logout
+				</a></li>
+				
+				
+				
+				
+			</ul>
+			
+			
+		</div>	</div>
+</nav>
