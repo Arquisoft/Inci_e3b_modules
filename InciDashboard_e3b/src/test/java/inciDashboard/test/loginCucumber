@@ -1,9 +1,0 @@
-Feature: Login operario
-	El operario debera estar registrado
-	La contraseña debera ser la del operario registrado
-
-Scenario: Logueo de un operario
-  Given un operario  
-  When rellena correctamente usuario y contraseña
-  And click en login
-  Then se loguea

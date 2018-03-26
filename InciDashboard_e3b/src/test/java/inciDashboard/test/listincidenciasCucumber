@@ -1,9 +1,0 @@
-Feature: Listar las incidencias de un operario
-	El operario debera estar logueado	
-
-Scenario: Mostrar incidencias de un operario
-  Given un operario  
-  When esta logueado
-  And tiene incidencias asignadas
-  And click en mis incidencias
-  Then se muestran sus incidencias
