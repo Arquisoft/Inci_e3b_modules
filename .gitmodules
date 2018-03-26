@@ -1,0 +1,12 @@
+[submodule "Agents_e3b"]
+	path = Agents_e3b
+	url = https://github.com/Arquisoft/Agents_e3b.git
+[submodule "InciManager_e3b"]
+	path = InciManager_e3b
+	url = https://github.com/Arquisoft/InciManager_e3b
+[submodule "InciDashboard_e3b"]
+	path = InciDashboard_e3b
+	url = https://github.com/Arquisoft/InciDashboard_e3b
+[submodule "Loader_e3b"]
+	path = Loader_e3b
+	url = https://github.com/Arquisoft/Loader_e3b
