@@ -35,7 +35,7 @@ public class TestIntegration {
      * y que no devuelvan un error 404 (servidor no disponible)
      */
     @BeforeClass
-    public void checkServicesRunning(){
+    public static void checkServicesRunning(){
         // TODO: llamar a los servicios y que estén corriendo.
     }
 
@@ -55,7 +55,7 @@ public class TestIntegration {
 
     /**
      * En este test, compruebo que la incidencia añadida en el test anterior la ha recibido el módulo InciDashboard
-     * http://localhost:8091/ <- En el puerto 8091 está InciManager
+     * http://localhost:8092/ <- En el puerto 8092 está InciDashboard
      */
     @Test
     public void test2_InciDashboardReadIncidence(){
