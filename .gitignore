@@ -11,8 +11,8 @@
 .mtj.tmp/
 
 # Package Files #
-*.jar
 *.war
+*.jar
 *.ear
 *.zip
 *.tar.gz
@@ -83,3 +83,15 @@ local.properties
 .idea/
 
 *.iml
+
+# HSQLdb temp database
+!hsqldb/bin
+test.tmp
+test.lck
+test.log
+test.properties
+test.script
+
+!hsqldb/lib/*jar
+!hsqldb/lib/*zip
+!kafka_2.11-1.0.1/libs/*.jar
