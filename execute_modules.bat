@@ -1,8 +1,8 @@
 @echo off
-start cmd /k "kafka\bin\windows\zookeeper-server-start.bat kafka\config\zookeeper.properties"
+start cmd /k "title Apache_Zookeeper & kafka\bin\windows\zookeeper-server-start.bat kafka\config\zookeeper.properties"
 timeout 4
 
-start cmd /k "kafka\bin\windows\kafka-server-start.bat kafka\config\server.properties"
+start cmd /k "title Apache_Kafka & kafka\bin\windows\kafka-server-start.bat kafka\config\server.properties"
 timeout  5
 
 start cmd /k "title Agents_e3b & cd Agents_e3b & mvn spring-boot:run"

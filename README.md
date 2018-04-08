@@ -30,13 +30,17 @@ Estado de la **integración continua** de los proyectos:
 [![codecov](https://codecov.io/gh/Arquisoft/InciDashboard_e3b/branch/master/graph/badge.svg)](https://codecov.io/gh/Arquisoft/InciDashboard_e3b)
 [![Gitter](https://badges.gitter.im/Arquisoft/InciDashboard_e3b.svg)](https://gitter.im/inciDashboard_e3b/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
-# Actualizar submódulos
-Los 4 repositorios incluidos como submódulos, hacen referencia a un commit del repositorio original ». Para actualizar la referencia de cada módulo a la última versión, hay que ejectuar desde este directorio el siguiente comando:
+# Actualizar módulos
+Los 4 repositorios incluidos como submódulos, hacen referencia a un commit del repositorio original ». Para actualizar la referencia de cada módulo a la última versión, hay que ejectuar desde el directorio raiz del repositorio el siguiente comando:
 ```
 git submodule foreach git pull origin master
 ```
 
-# Ejecución de todos los módulos
-Para arrancar todos los servicios hay que ejecutar el fichero batch `execute_modules.bat`. 
+También se puede ejecutar el archivo **update_modules.bat**, que contiene el comando anterior.
 
-Este fichero ejecutará Apache Zookeeper, Apache Kafka y después los módulos de Agentes, InciManager e InciDashboard, para su poder testear la funcionaldiad.
+# Ejecución de todos los módulos
+1. tiene que estar ejecutándose la base de datos hsqldb, para arrancarla hay que ejecutar el fichero `hsqldb\bin\runServer.bat`
+
+2. Para arrancar todos los servicios hay que ejecutar el fichero batch `execute_modules.bat`. 
+
+Este fichero ejecutará Apache Zookeeper, Apache Kafka y después los módulos de Agentes, InciManager e InciDashboard, para su poder testear la funcionalidad.
