@@ -95,3 +95,4 @@ test.script
 !hsqldb/lib/*jar
 !hsqldb/lib/*zip
 !kafka_2.11-1.0.1/libs/*.jar
+tmp_kafka/
