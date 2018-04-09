@@ -5,7 +5,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.boot.test.TestRestTemplate;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.http.*;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.assertThat;
 
 import java.net.URL;
 
@@ -50,7 +53,33 @@ public class TestIntegration {
      */
     @Test
     public void test1_InciManagerAddIncidence(){
-        //TODO: completar
+        String url = "http://localhost:8091//addIncidence";
+    	HttpHeaders headers = new HttpHeaders();
+    	headers.setContentType(MediaType.APPLICATION_JSON);
+    	String jsonText = "{\"username\":\"paco@gmail.com\","
+    			+ "\"password\":\"123456\","
+    			+ "\"incidenceName\":\"name\","
+    			+ "\"description\":\"description\","
+    			+ "\"location\":\"location\","
+    			+ "\"labels\":[],"
+    			+ "\"campos\":{},"
+    			+ "\"status\":\"ABIERTA\","
+    			+ "\"expiration\":\"123\","
+    			+ "\"cacheable\":\"true\"}";
+    	String restResponse = "{\"idIncidencia\":null,"
+    			+ "\"username\":\"paco@gmail.com\","
+    			+ "\"password\":\"123456\","
+    			+ "\"incidenceName\":\"name\","
+    			+ "\"description\":\"description\","
+    			+ "\"location\":\"location\","
+    			+ "\"labels\":[],"
+    			+ "\"campos\":{},"
+    			+ "\"status\":\"ABIERTA\","
+    			+ "\"expiration\":123,"
+    			+ "\"cacheable\":true}";
+    	HttpEntity<String> entity = new HttpEntity<String>(jsonText, headers);
+    	ResponseEntity<String> response = template.exchange(url, HttpMethod.POST, entity, String.class);
+    	assertThat(response.getBody(),equalTo(restResponse));
     }
 
     /**
