@@ -26,3 +26,48 @@ Este fichero batch lleva a cabo las siguientes acciones:
 2. Ejecuta una instancia la base de datos HSQLDB
 3. Inicia Apache Zookeeper y Apache Kafka 
 4. Finalmente ejecuta los módulos de Agentes, InciManager e InciDashboard, para así poder testear la funcionalidad completa.
+
+### Despliegue automático mediante contenedores Docker
+
+Si se dispone de una instancia de [Docker](https://www.docker.com) ya instalada,
+ es posible desplegar automáticamente todos los servicios necesarios utilizando 
+ la herramienta de orquestación de contenedores 
+ [Docker-Compose](https://docs.docker.com/compose/overview). Para ello, basta 
+ con situarse en el directorio raiz del proyecto (donde se encuentra el fichero
+  [docker-compose.yml](docker-compose.yml)) y ejecutar en la consola:
+
+~~~batchfile
+docker-compose up
+~~~
+
+De forma opcional, es posible combinar al despliegue anterior diversos contenedores 
+auxiliares destinados a gestionar y supervisar el funcionamiento de dichos servicios: 
+
+~~~batchfile
+docker-compose -f docker-compose.yml -f docker-compose.management.yml up
+~~~
+ 
+ Una vez desplegado, cada contenedor es accesible a través del puerto 
+ correspondiente del servidor Docker donde se ejecutan dichos contenedores (en 
+ el caso de tratarse de la misma máquina, puede sustituirse por la combinación:
+ *localhost:puerto*):
+  
+ |  CONTENEDOR   | DIRECCIÓN                                   | FICHERO                                                        |
+ |---------------|---------------------------------------------|----------------------------------------------------------------|
+ | zookeeper     | [zookeeper:2181](http://localhost:2181)     | [docker-compose.yml](docker-compose.yml)                       |
+ | kafka         | [kafka:9092](http://localhost:9092)         | [docker-compose.yml](docker-compose.yml)                       |
+ | kafka-manager | [kafka-manager:9000](http://localhost:9000) | [docker-compose.managament.yml](docker-compose.managament.yml) |
+ 
+**IMPORTANTE:** En el caso de utilizar *Docker Compose* con *Docker Toolbox/Machine*
+ en *MS-Windows*,  es necesario establecer primero la variable de entorno 
+ [COMPOSE_CONVERT_WINDOWS_PATHS=1](https://docs.docker.com/compose/reference/envvars/#compose_convert_windows_paths)
+  antes de poder ejecutar con exito `docker-compose` 
+  (*[breaking changes 1.9.0 (2016-11-16)](https://github.com/docker/compose/blob/master/CHANGELOG.md#190-2016-11-16))*. 
+
+Para detener la ejecución de todos los servicios de forma interactiva es 
+suficiente con la combinación de teclas Ctrl+C o en su defecto, ejecutando la orden:
+
+~~~batchfile
+docker-compose down
+~~~
+
