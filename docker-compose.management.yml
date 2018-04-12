@@ -1,0 +1,16 @@
+version: '3.6'
+
+services:
+
+  kafka-manager:
+    image: sheepkiller/kafka-manager:latest
+    ports:
+      - "9000:9000"
+    environment:
+      ZK_HOSTS: zookeeper:2181
+      APPLICATION_SECRET: changeit
+      KM_ARGS: -Djava.net.preferIPv4Stack=true
+    links:
+      - zookeeper
+      - kafka
+
