@@ -2,6 +2,15 @@ version: '3.6'
 
 services:
 
+  postgres:
+    image: postgres:alpine
+    ports:
+      - "5432:5432"
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: changeme
+
   zookeeper:
     image: wurstmeister/zookeeper
     ports:
@@ -19,3 +28,4 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     links:
       - zookeeper
+

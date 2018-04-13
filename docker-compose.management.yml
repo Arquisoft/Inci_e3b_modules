@@ -2,6 +2,17 @@ version: '3.6'
 
 services:
 
+  pgadmin4:
+    image: dpage/pgadmin4
+    ports:
+      - "80:5433"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: container@pgadmin.org
+      PGADMIN_DEFAULT_PASSWORD: Conta1ner
+      PGADMIN_SERVER_NAME: pgadmin4
+    links:
+      - postgres
+
   kafka-manager:
     image: sheepkiller/kafka-manager:latest
     ports:
