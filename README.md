@@ -57,8 +57,8 @@ docker-compose -f docker-compose.yml -f docker-compose.management.yml up
  | postgres      | [postgres:5432](http://localhost:5432)      | [docker-compose.yml](docker-compose.yml)                       |
  | zookeeper     | [zookeeper:2181](http://localhost:2181)     | [docker-compose.yml](docker-compose.yml)                       |
  | kafka         | [kafka:9092](http://localhost:9092)         | [docker-compose.yml](docker-compose.yml)                       |
- | pgadmin4      | [pgadmin4:5433](http://localhost:5433)      | [docker-compose.managament.yml](docker-compose.managament.yml) |
- | kafka-manager | [kafka-manager:9000](http://localhost:9000) | [docker-compose.managament.yml](docker-compose.managament.yml) |
+ | pgadmin4      | [pgadmin4:5433](http://localhost:5433)      | [docker-compose.management.yml](docker-compose.management.yml) |
+ | kafka-manager | [kafka-manager:9000](http://localhost:9000) | [docker-compose.management.yml](docker-compose.management.yml) |
  
 **IMPORTANTE:** En el caso de utilizar *Docker Compose* con *Docker Toolbox/Machine*
  en *MS-Windows*,  es necesario establecer primero la variable de entorno 
