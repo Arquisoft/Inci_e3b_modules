@@ -99,3 +99,6 @@ tmp_kafka/
 
 # GFM View
 .README.md.html
+
+# src/main/bin exception:
+!src/main/bin
