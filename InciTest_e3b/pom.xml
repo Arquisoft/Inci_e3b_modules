@@ -23,12 +23,24 @@
 		<maven.build.timestamp.format>yyyy-MM-dd-HH:mm</maven.build.timestamp.format>
 		<java.version>1.8</java.version>
 		<jdk.version>1.8</jdk.version>
+		<junit.version>4.12</junit.version>
 		<maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
 		<maven-project-info-reports-plugin.version>2.9</maven-project-info-reports-plugin.version>
 		<maven-checkstyle-plugin.version>3.0.0</maven-checkstyle-plugin.version>
+		<maven-surefire-plugin.version>2.20.1</maven-surefire-plugin.version>
+		<maven-failsafe-plugin.version>2.20.1</maven-failsafe-plugin.version>
 		<maven-javadoc-plugin.version>3.0.0</maven-javadoc-plugin.version>
 		<maven-pmd-plugin.version>3.9.0</maven-pmd-plugin.version>
 	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>
@@ -48,6 +60,33 @@
 				<version>${maven-checkstyle-plugin.version}</version>
 				<configuration>
 					<enableRulesSummary>false</enableRulesSummary>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven-surefire-plugin.version}</version>
+				<configuration>
+					<excludes>
+						<exclude>**/*IT.java</exclude>
+						<exclude>%regex[.*IntegrationTests?\..*]</exclude>
+						<exclude>**/*UAT.java</exclude>
+						<exclude>%regex[.*AcceptanceTests?\..*]</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>${maven-failsafe-plugin.version}</version>
+				<configuration>
+					<includes>
+						<include>**/*IT.java</include>
+						<include>%regex[.*IntegrationTests?\..*]</include>
+						<include>**/*UAT.java</include>
+						<include>%regex[.*AcceptanceTests?\..*]</include>
+					</includes>
+					<runOrder>alphabetical</runOrder>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -79,7 +118,12 @@
 				<artifactId>maven-pmd-plugin</artifactId>
 				<version>${maven-pmd-plugin.version}</version>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>${maven-surefire-plugin.version}</version>
+			</plugin>
 		</plugins>
 	</reporting>
-	
+
 </project>	
