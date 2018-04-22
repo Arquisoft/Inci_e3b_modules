@@ -25,6 +25,7 @@
 		<jdk.version>1.8</jdk.version>
 		<junit.version>4.12</junit.version>
 		<assertj.version>3.9.0</assertj.version>
+		<log4j.version>1.2.17</log4j.version>
 		<cucumber.version>2.3.1</cucumber.version>
 		<cucumber-reporting.version>3.14.0</cucumber-reporting.version>
 		<selenium.version>3.0.1</selenium.version>
@@ -53,6 +54,11 @@
 			<artifactId>assertj-core</artifactId>
 			<version>${assertj.version}</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.cucumber</groupId>
