@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>es.uniovi.asw.e3b</groupId>
+	<artifactId>incitest_e3b</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>InciTest_e3b</name>
+	<description>Test Gestor de Incidencias e3b</description>
+	<url>https://github.com/Arquisoft/Inci_e3b_modules/</url>
+	<organization>
+		<name>Escuela de Ingeniería Informática de la Universidad de Oviedo</name>
+		<url>https://ingenieriainformatica.uniovi.es/</url>
+	</organization>
+</project>
