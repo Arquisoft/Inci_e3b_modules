@@ -28,7 +28,7 @@
 		<log4j.version>2.10.0</log4j.version>
 		<cucumber.version>2.3.1</cucumber.version>
 		<cucumber-reporting.version>3.14.0</cucumber-reporting.version>
-		<selenium.version>3.0.1</selenium.version>
+		<selenium.version>2.53.1</selenium.version>
 		<selenium-htmlunit-driver.version>2.52.0</selenium-htmlunit-driver.version>
 		<maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
 		<maven-project-info-reports-plugin.version>2.9</maven-project-info-reports-plugin.version>
