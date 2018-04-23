@@ -11,6 +11,6 @@ Característica: Disponibilidad de los servicios
 
     Ejemplos: 
       | servicio      | direccion      |
-      | Agents        | localhost:8090 |
-      | InciManager   | localhost:8091 |
-      | InciDashboard | localhost:8092 |
+      | Agents        | http://localhost:8090/ |
+      | InciManager   | http://localhost:8091/ |
+      | InciDashboard | http://localhost:8092/ |
