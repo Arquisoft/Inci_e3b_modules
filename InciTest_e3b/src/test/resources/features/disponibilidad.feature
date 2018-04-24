@@ -5,13 +5,13 @@ Característica: Disponibilidad de los servicios
   Quiero tener disponible todos los servicios implicados
   Y de ese modo poder procesar incidencias.
 
-  Esquema del escenario: Disponibilidad del servicio: "<servicio>"
-    Dado el servicio: "<servicio>" desplegado en el puerto: "<puerto>" del anfitrión: "<anfitrión>"
-    Cuando el usuario quiere disponer del servicio: "<servicio>"
-    Entonces se encuentra disponible la dirección web: "http://<anfitrión>:<puerto>/"
+  Esquema del escenario: Disponibilidad del servicio: "<service>"
+    Dado el servicio: "<service>" desplegado en el puerto: "<port>" del anfitrión: "<host>"
+    Cuando el usuario quiere disponer del servicio: "<service>"
+    Entonces se encuentra disponible la dirección web: "http://<host>:<port>/"
 
     Ejemplos: 
-      | servicio      | anfitrión | puerto |
-      | Agents        | localhost |   8090 |
-      | InciManager   | localhost |   8091 |
-      | InciDashboard | localhost |   8092 |
+      | service       | host      | port |
+      | Agents        | localhost | 8090 |
+      | InciManager   | localhost | 8091 |
+      | InciDashboard | localhost | 8092 |

@@ -30,21 +30,21 @@ public class DisponibilidadSteps {
 	}
 
 	@Dado("^el servicio: \"([^\"]*)\" desplegado en el puerto: \"([^\"]*)\" del anfitrión: \"([^\"]*)\"$")
-	public void elServicioDesplegadoEnElPuertoDelAnfitrion(String servicio, String puerto, String anfitrion) throws Throwable {
-		logger.trace("Dado el servicio: '" + servicio + "' desplegado en el puerto: '" + puerto + "' del anfitrión: '" + anfitrion + "'");
+	public void elServicioDesplegadoEnElPuertoDelAnfitrion(String service, String port, String host) throws Throwable {
+		logger.trace("Dado el servicio: '" + service + "' desplegado en el puerto: '" + port + "' del anfitrión: '" + host + "'");
 	}
 	
 	@Cuando("^el usuario quiere disponer del servicio: \"([^\"]*)\"$")
-	public void elUsuarioVisitaLaDireccionDelServicio(String servicio) throws Throwable {
-		logger.trace("Cuando el usuario quiere disponer del servicio: '" + servicio + "'");
+	public void elUsuarioVisitaLaDireccionDelServicio(String service) throws Throwable {
+		logger.trace("Cuando el usuario quiere disponer del servicio: '" + service + "'");
 	}
 
 	@Entonces("^se encuentra disponible la dirección web: \"([^\"]*)\"$")
-	public void seEncuentraDisponibleLaDireccionWeb(String direccion) throws Throwable {
-		logger.trace("se encuentra disponible la dirección web: '" + direccion + "'");
-		driver.navigate().to(direccion);
+	public void seEncuentraDisponibleLaDireccionWeb(String url) throws Throwable {
+		logger.trace("se encuentra disponible la dirección web: '" + url + "'");
+		driver.navigate().to(url);
 		// ToDo: Parametrizar la dirección de los servicios.
-		assertThat(driver.getCurrentUrl()).isEqualTo(direccion);
+		assertThat(driver.getCurrentUrl()).isEqualTo(url);
 	}
 
 	@After
