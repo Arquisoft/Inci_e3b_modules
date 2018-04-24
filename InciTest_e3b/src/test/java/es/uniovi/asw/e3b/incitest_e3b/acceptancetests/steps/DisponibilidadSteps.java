@@ -13,6 +13,7 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.es.Cuando;
+import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
 
 public class DisponibilidadSteps {
@@ -28,16 +29,19 @@ public class DisponibilidadSteps {
 		driver.manage().timeouts().implicitlyWait(implicitTimeout, TimeUnit.SECONDS);
 	}
 
+	@Dado("^el servicio: \"([^\"]*)\" desplegado en el puerto: \"([^\"]*)\" del anfitrión: \"([^\"]*)\"$")
+	public void elServicioDesplegadoEnElPuertoDelAnfitrion(String servicio, String puerto, String anfitrion) throws Throwable {
+		logger.trace("Dado el servicio: '" + servicio + "' desplegado en el puerto: '" + puerto + "' del anfitrión: '" + anfitrion + "'");
+	}
+	
 	@Cuando("^el usuario quiere disponer del servicio: \"([^\"]*)\"$")
 	public void elUsuarioVisitaLaDireccionDelServicio(String servicio) throws Throwable {
 		logger.trace("Cuando el usuario quiere disponer del servicio: '" + servicio + "'");
 	}
 
-	@Entonces("^el usuario tiene disponible la página web del servicio: \"([^\"]*)\" en la dirección: \"([^\"]*)\"$")
-	public void elUsuarioTieneDisponibleLaPaginaWebDelServicioEnLaDireccion(String servicio, String direccion)
-			throws Throwable {
-		logger.trace("Entonces el usuario tiene disponible la página web del servicio: '" + servicio
-				+ "' en la dirección: '" + direccion + "'");
+	@Entonces("^se encuentra disponible la dirección web: \"([^\"]*)\"$")
+	public void seEncuentraDisponibleLaDireccionWeb(String direccion) throws Throwable {
+		logger.trace("se encuentra disponible la dirección web: '" + direccion + "'");
 		driver.navigate().to(direccion);
 		// ToDo: Parametrizar la dirección de los servicios.
 		assertThat(driver.getCurrentUrl()).isEqualTo(direccion);
