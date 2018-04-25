@@ -2,8 +2,8 @@
 Característica: Disponibilidad de los servicios
   
   Como usuario, 
-  Quiero tener disponible todos los servicios implicados
-  Y de ese modo poder procesar incidencias.
+  quiero tener disponible todos los servicios implicados
+  para poder procesar incidencias.
 
   Esquema del escenario: Disponibilidad del servicio: "<service>"
     Dado el servicio: "<service>" desplegado en el puerto: "<port>" del anfitrión: "<host>"
@@ -14,4 +14,4 @@ Característica: Disponibilidad de los servicios
       | service       | host      | port |
       | Agents        | localhost | 8090 |
       | InciManager   | localhost | 8091 |
-      | InciDashboard | localhost | 8092 |
+#     | InciDashboard | localhost | 8092 |
