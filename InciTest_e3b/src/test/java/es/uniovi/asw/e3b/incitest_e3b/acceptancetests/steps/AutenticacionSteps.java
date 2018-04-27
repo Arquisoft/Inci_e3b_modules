@@ -1,5 +1,6 @@
 package es.uniovi.asw.e3b.incitest_e3b.acceptancetests.steps;
 
+import static net.javacrumbs.jsonunit.fluent.JsonFluentAssert.assertThatJson;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.concurrent.TimeUnit;
@@ -11,6 +12,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.web.client.RestTemplate;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -18,80 +27,72 @@ import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
 import cucumber.api.java.es.Y;
+import es.uniovi.asw.e3b.incitest_e3b.ConfigProperties;
+import es.uniovi.asw.e3b.incitest_e3b.TestContextConfiguration;
 
+@ContextConfiguration(classes = TestContextConfiguration.class)
 public class AutenticacionSteps {
 
 	private static final Logger logger = LogManager.getLogger(AutenticacionSteps.class);
 
-	// @Value("${agents.server.address:localhost}")
-	private String agentsServerAddress = "localhost";
-	// @Value("${agents.server.port:8090}")
-	private int agentsServerPort = 8090;
-	// @Value("${incimanager.server.address:localhost}")
-	private String inciManagerServerAddress = "localhost";
-	// @Value("${incimanager.server.port:8091}")
-	private int inciManagerServerPort = 8091;
-	// @Value("${incidashboard.server.address:localhost}")
-	private String inciDashboardServerAddress = "localhost";
-	// @Value("${incidashboard.server.port:8092}")
-	private int inciDashboardServerPort = 8092;
+	@Autowired
+	private ConfigProperties configProperties;
 
-	private String agentsBaseUrl;
-	private String inciManagerBaseUrl;
-	private String inciDashboardBaseUrl;
 	private WebDriver driver;
 	private int implicitTimeout = 10;
 	private int explicitTimeout = 30;
-
-	private String getServiceBaseUrl(String serviceName) {
-		String serviceBaseUrl = null;
-		switch (serviceName) {
-		case "Agents":
-			serviceBaseUrl = agentsBaseUrl;
-			break;
-		case "InciManager":
-			serviceBaseUrl = inciManagerBaseUrl;
-			break;
-		case "InciDashboard":
-			serviceBaseUrl = inciDashboardBaseUrl;
-			break;
-		}
-		return serviceBaseUrl;
-	}
+	private RestTemplate restTemplate;
+	private HttpEntity<String> httpEntity;
 
 	@Before
 	public void setUp() {
 		driver = new HtmlUnitDriver();
 		driver.manage().timeouts().implicitlyWait(implicitTimeout, TimeUnit.SECONDS);
-		agentsBaseUrl = "http://" + agentsServerAddress + ":" + agentsServerPort;
-		inciManagerBaseUrl = "http://" + inciManagerServerAddress + ":" + inciManagerServerPort;
-		inciDashboardBaseUrl = "http://" + inciDashboardServerAddress + ":" + inciDashboardServerPort;
-		logger.debug("Base URL for sevice 'Agents': " + agentsBaseUrl);
-		logger.debug("Base URL for sevice 'InciManager': " + inciManagerBaseUrl);
-		logger.debug("Base URL for sevice 'InciDashboard': " + inciDashboardBaseUrl);
+		restTemplate = new RestTemplate();
 	}
 
-	@Dado("^un agente previamente registrado en el sistema con el nombre de usuario \"([^\"]*)\" y la contraseña \"([^\"]*)\"$")
+	@Dado("^un agente previamente registrado en el sistema con el nombre de usuario: \"([^\"]*)\" y la contraseña: \"([^\"]*)\"$")
 	public void unAgentePreviamenteRegistradoEnElSistemaConElNombreDeUsuarioYLaContrasenia(String username,
 			String password) throws Throwable {
 		logger.debug("Dado un agente previamente registrado en el sistema con el nombre de usuario: '" + username
 				+ "' y la contraseña: '" + password + "'");
 	}
 
+	@Y("^con el tipo de agente: \"([^\"]*)\"$")
+	public void conElTipoDeAgente(String kind) throws Throwable {
+		logger.debug("Y con el tipo de agente: '" + kind + "'");
+	}
+
+	@Cuando("^invoco el servicio con la siguiente solicitud en formato JSON:$")
+	public void invocoElServicioConLaSiguienteSolicitudEnFormatoJSON(String jsonRequest) throws Throwable {
+		logger.debug("Cuando invoco el servicio con la siguiente solicitud en formato JSON: '" + jsonRequest + "'");
+		HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+		httpEntity = new HttpEntity<String>(jsonRequest, httpHeaders);
+	}
+
+	@Entonces("^el servicio devuelve la siguiente respuesta en formato JSON:$")
+	public void elServicioDevuelveLaSiguienteRespuestaEnFormatoJSON(String jsonResponse) throws Throwable {
+		logger.debug("Entonces el servicio devuelve la siguiente respuesta en formato JSON:'" + jsonResponse + "'");
+		ResponseEntity<String> responseEntity = restTemplate.exchange(
+				configProperties.getServiceBaseUrlByName("Agents") + "/user", HttpMethod.POST, httpEntity,
+				String.class);
+		assertThatJson(responseEntity.getBody()).isEqualTo(jsonResponse);
+	}
+
 	@Y("^no puedo acceder a la página principal del servicio: \"([^\"]*)\"$")
 	public void noPuedoAccederALaPaginaPrincipalDelServicio(String service) throws Throwable {
 		logger.debug("Y no puedo acceder a la página principal del servicio: '" + service + "'");
-		driver.navigate().to(inciManagerBaseUrl + "/home");
-		assertThat(driver.getCurrentUrl()).isNotEqualTo(getServiceBaseUrl(service) + "/home");
-		;
+		driver.navigate().to(configProperties.getServiceBaseUrlByName(service) + "/home");
+		assertThat(driver.getCurrentUrl()).isNotEqualTo(configProperties.getServiceBaseUrlByName(service) + "/home");
 	}
 
 	@Cuando("^visito la página de inicio de sesión del servicio: \"([^\"]*)\"$")
 	public void visitoLaPaginaDeIncioDeSesionDelServicio(String service) throws Throwable {
 		logger.debug("Cuando visito la página de inicio de sesión del servicio: '" + service + "'");
-		driver.navigate().to(inciManagerBaseUrl + "/login");
+		driver.navigate().to(configProperties.getServiceBaseUrlByName(service) + "/login");
 		// ToDO: Wait for element
-		assertThat(driver.getCurrentUrl()).isEqualTo(getServiceBaseUrl(service) + "/login");
+		assertThat(driver.getCurrentUrl()).isEqualTo(configProperties.getServiceBaseUrlByName(service) + "/login");
 	}
 
 	@Y("^introduzco el nombre de usuario: \"([^\"]*)\" en el formulario$")
@@ -119,10 +120,10 @@ public class AutenticacionSteps {
 	@Entonces("^puedo acceder a la página principal del servicio: \"([^\"]*)\"$")
 	public void puedoAccederALaPaginaPrincipalDelServicio(String service) throws Throwable {
 		logger.debug("Entonces puedo acceder a la página principal del servicio: '" + service + "'");
-		assertThat(driver.getCurrentUrl()).isEqualTo(getServiceBaseUrl(service) + "/home");
+		assertThat(driver.getCurrentUrl()).isEqualTo(configProperties.getServiceBaseUrlByName(service) + "/home");
 	}
 
-	@Dado("^ningún agente registrado en el sistema con el nombre de usuario \"([^\"]*)\" y la contraseña \"([^\"]*)\"$")
+	@Dado("^ningún agente registrado en el sistema con el nombre de usuario: \"([^\"]*)\" y la contraseña: \"([^\"]*)\"$")
 	public void ningunAgenteNoRegistradoEnElSistemaConElNombreDeUsuarioYLaContrasenia(String username, String password)
 			throws Throwable {
 		logger.debug("Dado nigún agente registrado en el sistema con el nombre de usuario: '" + username
@@ -132,7 +133,8 @@ public class AutenticacionSteps {
 	@Entonces("^recibo una notificación de error de acceso al servicio: \"([^\"]*)\"$")
 	public void reciboUnaNotificacionDeErrorDeAccesoAlServicio(String service) throws Throwable {
 		logger.debug("Entonces recibo una notifiación de error de acceso al servicio: '" + service + "'");
-		assertThat(driver.getCurrentUrl()).isEqualTo(getServiceBaseUrl(service) + "/login?error");
+		assertThat(driver.getCurrentUrl())
+				.isEqualTo(configProperties.getServiceBaseUrlByName(service) + "/login?error");
 	}
 
 	@After
