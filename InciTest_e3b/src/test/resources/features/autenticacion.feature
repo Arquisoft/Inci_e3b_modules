@@ -5,6 +5,7 @@ Característica: Autenticación de agentes
   quiero acceder a cualquiera de los servicios necesarios 
   para poder procesar incidencias.
 
+	@qa_ready @autenticacion @rest @agents
   Esquema del escenario: Consulta de información sobre un agente utilizando REST API
     Dado un agente previamente registrado en el sistema con el nombre de usuario: "<username>" y la contraseña: "<password>"
     Y con el tipo de agente: "<kind>"
@@ -32,6 +33,7 @@ Característica: Autenticación de agentes
       | Ministerio Medioambiente | 43.359486, -5.846986   | ambiente@ministerio.com | ambiente@ministerio.com |   123456 | Entity |        2 |
       | Space X sensor model A   | 33.921209, -118.327940 | musk@spacex.com         | musk@spacex.com         |   123456 | Sensor |        3 |
 
+	@qa_ready @autenticacion @login @agents @incimanager @dashboard
   Esquema del escenario: Autenticación Web de agentes registrados
     Dado un agente previamente registrado en el sistema con el nombre de usuario: "<username>" y la contraseña: "<password>"
     Y no puedo acceder a la página principal del servicio: "<service>"
@@ -49,6 +51,7 @@ Característica: Autenticación de agentes
       | InciManager | ambiente@ministerio.com |   123456 |
       | InciManager | musk@spacex.com         |   123456 |
 
+	@qa_ready @autenticacion @login @agents @incimanager @dashboard
   Esquema del escenario: Fallo de autenticación Web de agentes no registrados
     Dado ningún agente registrado en el sistema con el nombre de usuario: "<username>" y la contraseña: "<password>"
     Y no puedo acceder a la página principal del servicio: "<service>"
