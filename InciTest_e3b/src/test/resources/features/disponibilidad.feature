@@ -5,6 +5,7 @@ Característica: Disponibilidad de los servicios
   quiero tener disponible todos los servicios implicados
   para poder procesar incidencias.
 
+	@qa_ready @disponibilidad @agents @incimanager @dashboard
   Esquema del escenario: Disponibilidad del servicio: "<service>"
     Dado el servicio: "<service>" desplegado en el puerto: "<port>" del anfitrión: "<host>"
     Cuando el usuario quiere disponer del servicio: "<service>"
