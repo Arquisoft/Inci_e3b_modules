@@ -100,3 +100,34 @@ FOR /f "tokens=*" %%i IN ('docker images --format "{{.ID}}"') DO docker rmi %%i
 pause
 ~~~
 
+## Como probar el proyecto
+
+### Ejecución de las pruebas de aceptación de usuario (User Acceptance Tests)
+
+Para ejecutar exclusivamente el conjunto de pruebas de aceptación dentro de la
+fase `verify` de Maven (e independientemente del resto de pruebas de 
+integración), puede hacerse ejecutando:
+
+~~~batchfile
+mvn -Dit.test=AcceptanceTests verify 
+~~~
+
+Si además se quiere limitar la ejecución a una caracteristica (*feature*) concreta 
+del conjunto de caracteristicas disponibles en el directorio `src/test/resources/features/`:
+
+~~~batchfile
+mvn -Dit.test=AcceptanceTests \
+    -Dcucumber.options="src/test/resources/features/autenticacion.feature"\
+    verify
+~~~
+
+Opcionalmente tambien es posible limitar la ejecución al conjunto de escenarios 
+etiquetados por una o varias etiquetas:
+
+~~~batchfile
+mvn -Dit.test=AcceptanceTests -Dcucumber.options="--tags @qa_ready,@login" verify
+~~~
+
+Concluida la ejecución de las pruebas es posible consultar el resultado de las 
+mismas en el fichero de salida: `${project.build.directory}/cucumber/index.html`
+
