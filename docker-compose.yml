@@ -9,7 +9,7 @@ services:
     restart: always
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: changeme
+      POSTGRES_PASSWORD: changeit
 
   zookeeper:
     image: wurstmeister/zookeeper
