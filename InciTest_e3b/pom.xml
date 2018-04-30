@@ -27,16 +27,18 @@
 		<assertj.version>3.9.0</assertj.version>
 		<json-unit-fluent.version>1.28.2</json-unit-fluent.version>
 		<log4j.version>2.10.0</log4j.version>
-		<cucumber.version>2.3.1</cucumber.version>
+		<cucumber.version>2.3.0</cucumber.version>
 		<cucumber-reporting.version>3.14.0</cucumber-reporting.version>
 		<selenium.version>2.53.1</selenium.version>
 		<selenium-htmlunit-driver.version>2.52.0</selenium-htmlunit-driver.version>
 		<springframework.boot.version>1.5.10.RELEASE</springframework.boot.version>
+		<gatling.version>2.2.5</gatling.version>
 		<maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
 		<maven-project-info-reports-plugin.version>2.9</maven-project-info-reports-plugin.version>
 		<maven-checkstyle-plugin.version>3.0.0</maven-checkstyle-plugin.version>
 		<maven-surefire-plugin.version>2.20.1</maven-surefire-plugin.version>
 		<maven-failsafe-plugin.version>2.20.1</maven-failsafe-plugin.version>
+		<gatling-maven-plugin.version>2.2.4</gatling-maven-plugin.version>
 		<jacoco-maven-plugin.version>0.8.0</jacoco-maven-plugin.version>
 		<maven-javadoc-plugin.version>3.0.0</maven-javadoc-plugin.version>
 		<maven-pmd-plugin.version>3.9.0</maven-pmd-plugin.version>
@@ -137,6 +139,12 @@
 			<version>${springframework.boot.version}</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>io.gatling.highcharts</groupId>
+			<artifactId>gatling-charts-highcharts</artifactId>
+			<version>${gatling.version}</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -193,6 +201,11 @@
 					</includes>
 					<runOrder>alphabetical</runOrder>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>io.gatling</groupId>
+				<artifactId>gatling-maven-plugin</artifactId>
+				<version>${gatling-maven-plugin.version}</version>
 			</plugin>
 			<plugin>
 				<groupId>org.jacoco</groupId>
