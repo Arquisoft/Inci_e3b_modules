@@ -44,12 +44,13 @@ Característica: Autenticación de agentes
     Entonces puedo acceder a la página principal del servicio: "<service>"
 
     Ejemplos: 
-      | service     | username                | password |
-      | InciManager | paco@gmail.com          |   123456 |
-      | InciManager | pepe@gmail.com          |   123456 |
-      | InciManager | admin@sensores.com      |   123456 |
-      | InciManager | ambiente@ministerio.com |   123456 |
-      | InciManager | musk@spacex.com         |   123456 |
+      | service       | username                | password |
+      | InciManager   | paco@gmail.com          |   123456 |
+      | InciManager   | pepe@gmail.com          |   123456 |
+      | InciManager   | admin@sensores.com      |   123456 |
+      | InciManager   | ambiente@ministerio.com |   123456 |
+      | InciManager   | musk@spacex.com         |   123456 |
+	  | InciDashboard | oper12@gmail.es         |   123456 |
 
 	@qa_ready @autenticacion @login @agents @incimanager @dashboard
   Esquema del escenario: Fallo de autenticación Web de agentes no registrados
@@ -63,6 +64,7 @@ Característica: Autenticación de agentes
     Y no puedo acceder a la página principal del servicio: "<service>"
 
     Ejemplos: 
-      | service     | username           | password         |
-      | InciManager | paco@gmail.com     | INVALID_PASSWORD |
-      | InciManager | unregistered@agent | ANY_PASSWORD     |
+      | service       | username           | password         |
+      | InciManager   | paco@gmail.com     | INVALID_PASSWORD |
+      | InciManager   | unregistered@agent | ANY_PASSWORD     |
+	  | InciDashboard | opUnreg@gmail.com  | ANY_PASSWORD     |
