@@ -50,7 +50,7 @@ Característica: Autenticación de agentes
       | InciManager   | admin@sensores.com      |   123456 |
       | InciManager   | ambiente@ministerio.com |   123456 |
       | InciManager   | musk@spacex.com         |   123456 |
-	  | InciDashboard | oper12@gmail.es         |   123456 |
+      | InciDashboard | oper12@gmail.es         |   123456 |
 
 	@qa_ready @autenticacion @login @agents @incimanager @dashboard
   Esquema del escenario: Fallo de autenticación Web de agentes no registrados
@@ -67,4 +67,4 @@ Característica: Autenticación de agentes
       | service       | username           | password         |
       | InciManager   | paco@gmail.com     | INVALID_PASSWORD |
       | InciManager   | unregistered@agent | ANY_PASSWORD     |
-	  | InciDashboard | opUnreg@gmail.com  | ANY_PASSWORD     |
+      | InciDashboard | opUnreg@gmail.com  | ANY_PASSWORD     |
