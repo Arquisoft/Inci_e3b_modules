@@ -10,8 +10,12 @@ Estado de la **integración continua** de los proyectos:
 | [Loader e3b »](https://github.com/Arquisoft/Loader_e3b/) | [![Build Status](https://travis-ci.org/Arquisoft/Loader_e3b.svg?branch=master)](https://travis-ci.org/Arquisoft/Loader_e3b) | [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6fad6fe134c1434cb0b9384d851821c8)](https://www.codacy.com/app/jelabra/Loader_e3b?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Arquisoft/Loader_e3b&amp;utm_campaign=Badge_Grade)|[![codecov](https://codecov.io/gh/Arquisoft/Loader_e3b/branch/master/graph/badge.svg)](https://codecov.io/gh/Arquisoft/Loader_e3b) | | [![GitHub issues](https://img.shields.io/github/issues/Arquisoft/Loader_e3b.svg)](https://github.com/Arquisoft/Loader_e3b/issues)
 | [InciDashBoard_e3b »](https://github.com/Arquisoft/InciDashboard_e3b/) | [![Build Status](https://travis-ci.org/Arquisoft/InciDashboard_e3b.svg?branch=master)](https://travis-ci.org/Arquisoft/InciDashboard_e3b) | [![Codacy Badge](https://api.codacy.com/project/badge/Grade/20f4862789f44608a8d6781dcacfda57)](https://www.codacy.com/app/UO252010/InciDashboard_e3b?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Arquisoft/InciDashboard_e3b&amp;utm_campaign=Badge_Grade) | [![codecov](https://codecov.io/gh/Arquisoft/InciDashboard_e3b/branch/master/graph/badge.svg)](https://codecov.io/gh/Arquisoft/InciDashboard_e3b) | [![Gitter](https://badges.gitter.im/Arquisoft/InciDashboard_e3b.svg)](https://gitter.im/inciDashboard_e3b/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link) | [![GitHub issues](https://img.shields.io/github/issues/Arquisoft/InciDashboard_e3b.svg)](https://github.com/Arquisoft/InciDashboard_e3b/issues)
 
-
-# Actualizar módulos
+## Clonar repositorio
+Para clonar el repositorio con los submódulos incluidos, debe hacerse con el siguiente comando:
+```
+git clone https://github.com/Arquisoft/Inci_e3b_modules.git --recurse-submodules
+```
+## Actualizar módulos
 Los 4 repositorios incluidos como submódulos, hacen referencia a un commit del repositorio original. Para actualizar la referencia de cada módulo a la última versión, hay que ejectuar desde el directorio raiz del repositorio el siguiente comando:
 ```
 git submodule foreach git pull origin master
