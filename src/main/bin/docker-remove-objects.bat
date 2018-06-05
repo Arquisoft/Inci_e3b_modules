@@ -13,5 +13,5 @@ docker network ls
 FOR /f "tokens=*" %%i IN ('docker network ls -q') DO docker network rm %%i 
 REM Remove all images:
 docker image ls
-FOR /f "tokens=*" %%i IN ('docker images --format "{{.ID}}"') DO docker rmi %%i
+REM FOR /f "tokens=*" %%i IN ('docker images --format "{{.ID}}"') DO docker rmi %%i
 pause
