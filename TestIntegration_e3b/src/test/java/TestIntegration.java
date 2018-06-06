@@ -9,6 +9,7 @@ import org.springframework.http.*;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertNotEquals;
 
 import java.net.URL;
 
@@ -39,7 +40,31 @@ public class TestIntegration {
      */
     @BeforeClass
     public static void checkServicesRunning(){
+        ResponseEntity<String> response;
+        HttpStatus statusCode = null;
         // TODO: llamar a los servicios y que estén corriendo.
+        
+        //Comprobación Agents
+        
+        String userURI = "http://localhost:8090/";
+	    response = template.getForEntity(userURI, String.class);
+        statusCode = response.getStatusCode();
+        assertNotEquals(HttpStatus.NOT_FOUND, equalTo(statusCode));
+        
+        //Comprobación InciManager
+
+		userURI = "http://localhost:8091/";
+		response = template.getForEntity(userURI, String.class);
+        statusCode = response.getStatusCode();
+        assertNotEquals(HttpStatus.NOT_FOUND, equalTo(statusCode));
+        
+        //Comprobación InciDashboard
+        
+        userURI = "http://localhost:8092/";
+		response = template.getForEntity(userURI, String.class);
+        statusCode = response.getStatusCode();
+        assertNotEquals(HttpStatus.NOT_FOUND, equalTo(statusCode));
+     
     }
 
     @Before
