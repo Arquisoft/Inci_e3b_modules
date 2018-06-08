@@ -83,6 +83,7 @@ public class TestIntegration {
     	headers.setContentType(MediaType.APPLICATION_JSON);
     	String jsonText = "{\"username\":\"paco@gmail.com\","
     			+ "\"password\":\"123456\","
+				  + "\"kind\":\"Person\","
     			+ "\"incidenceName\":\"name\","
     			+ "\"description\":\"description\","
     			+ "\"location\":\"location\","
@@ -94,6 +95,7 @@ public class TestIntegration {
     	String restResponse = "{\"idIncidencia\":null,"
     			+ "\"username\":\"paco@gmail.com\","
     			+ "\"password\":\"123456\","
+				  + "\"kind\":\"Person\","
     			+ "\"incidenceName\":\"name\","
     			+ "\"description\":\"description\","
     			+ "\"location\":\"location\","
