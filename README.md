@@ -161,7 +161,9 @@ Este fichero batch lleva a cabo las siguientes acciones:
 4. Finalmente ejecuta los módulos de Agentes, InciManager e InciDashboard, para así poder testear la funcionalidad completa.
 
 ### Capturas de pantalla
-Un par de imagenes de la pantalla de login de los módulos InciManager e InciDashboard:
+Algunas imagenes de la página de login de los módulos Agents, InciManager e InciDashboard (se puede ver más información la wiki: [Interfaz de usuario - capturas de pantalla](https://github.com/Arquisoft/Inci_e3b_modules/wiki/Interfaz-de-usuario---capturas-de-pantalla):
+* Agents:
+![Interfaz Agents](https://user-images.githubusercontent.com/17082987/41993985-47e892d6-7a4d-11e8-8fc6-aa5e9bfa86a2.png)
 * InciManager:
 ![incimanager_captura0](https://user-images.githubusercontent.com/17082987/41882285-66f3a7ee-78e8-11e8-9ab7-2af5c295cee2.PNG)
 * InciDashboard:
