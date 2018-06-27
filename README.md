@@ -16,19 +16,53 @@ Este proyecto ha sido desarrollado como práctica de la asignatura *[Arquitectur
 
 ## Tabla de Contenidos
 - [Descripción del proyecto](#inci_e3b_submodules)
+- [Como instalar el proyecto](#como-instalar-el-proyecto)
+    - [Requisitos de instalación](#requisitos-de-instalación)
+    - [Obtención del código fuente](#obtención-del-código-fuente)
+    - [Instalación de las dependencias](#instalación-de-las-dependencias)
+    - [Reinstalación de las dependencias](#reinstalación-de-las-dependencias)
 
-## Clonar repositorio
-Para clonar el repositorio con los submódulos incluidos, debe hacerse con el siguiente comando:
-```
+## Como instalar el proyecto
+
+### Requisitos de instalación
+
+- Máquina virtual de Java: [OpenJDK](http://openjdk.java.net) (versión: >= 1.6).
+- Sistema de control de versiones: [GIT](https://git-scm.com) (versión: >= 2.16).
+- Herramienta de construcción de proyectos: [Apache Maven](https://maven.apache.org) (versión: >= 3.5).
+
+### Obtención del código fuente
+
+Descarga la última versión del codigo fuente desde el repositorio oficial del proyecto:
+
+~~~
 git clone https://github.com/Arquisoft/Inci_e3b_modules.git --recurse-submodules
-```
-## Actualizar módulos
-Los 4 repositorios incluidos como submódulos, hacen referencia a un commit del repositorio original. Para actualizar la referencia de cada módulo a la última versión, hay que ejectuar desde el directorio raiz del repositorio el siguiente comando:
-```
-git submodule foreach git pull origin master
-```
+~~~
 
-También se puede ejecutar el archivo **update_modules.bat**, que contiene el comando anterior.
+Los 4 repositorios incluidos como submódulos, hacen referencia a un commit del repositorio original. 
+Para actualizar la referencia de cada módulo a la última versión, hay que ejectuar desde el directorio 
+raiz del repositorio la siguiente orden:
+
+~~~
+git submodule foreach git pull origin master
+~~~
+
+También se puede ejecutar el archivo **update_modules.bat**, que contiene la orden anterior.
+
+### Instalación de las dependencias
+
+Situarse en el directorio de descarga del código fuente y ejecutar:
+
+~~~
+mvn clean install
+~~~
+
+### Reinstalación de las dependencias
+
+En caso de ser necesario es posible purgar el repositorio local con las dependencias del proyecto ejecutando:
+
+~~~
+mvn dependency:purge-local-repository clean install -U
+~~~
 
 # Ejecución de todos los módulos
 ## Despliegue manual
