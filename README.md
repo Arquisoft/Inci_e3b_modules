@@ -24,6 +24,10 @@ Este proyecto ha sido desarrollado como práctica de la asignatura *[Arquitectur
     - [Requisitos para ejecutar el proyecto](#requisitos-para-ejecutar-el-proyecto)
     - [Despliegue automático mediante contenedores Docker](#despliegue-autom-tico-mediante-contenedores-docker)
 	 - [Despliegue manual](#despliegue-manual)
+	 - [Capturas de pantalla](#capturas-de-pantalla)
+- [Como probar el proyecto](#como-probar-el-proyecto)
+	 - [Ejecución de las pruebas de aceptación de usuario (User Acceptance Tests)](#ejecuci-n-de-las-pruebas-de-aceptaci-n-de-usuario--user-acceptance-tests-)
+	 
 
 ## Como instalar el proyecto
 
@@ -155,6 +159,13 @@ Este fichero batch lleva a cabo las siguientes acciones:
 3. Inicia Apache Zookeeper y Apache Kafka 
 4. Finalmente ejecuta los módulos de Agentes, InciManager e InciDashboard, para así poder testear la funcionalidad completa.
 
+### Capturas de pantalla
+Un par de imagenes de la pantalla de login de los módulos InciManager e InciDashboard:
+* InciManager:
+![incimanager_captura0](https://user-images.githubusercontent.com/17082987/41882285-66f3a7ee-78e8-11e8-9ab7-2af5c295cee2.PNG)
+* InciDashboard:
+![incidashboard_captura0](https://user-images.githubusercontent.com/17082987/41882290-6de0800e-78e8-11e8-9bac-be71babcd35b.PNG)
+
 ## Como probar el proyecto
 
 ### Ejecución de las pruebas de aceptación de usuario (User Acceptance Tests)
@@ -186,9 +197,3 @@ mvn -Dit.test=AcceptanceTests -Dcucumber.options="--tags @qa_ready,@login" verif
 Concluida la ejecución de las pruebas es posible consultar el resultado de las 
 mismas en el fichero de salida: `${project.build.directory}/cucumber/index.html`
 
-# Capturas de pantalla
-Un par de imagenes de la pantalla de login de los módulos InciManager e InciDashboard:
-* InciManager:
-![incimanager_captura0](https://user-images.githubusercontent.com/17082987/41882285-66f3a7ee-78e8-11e8-9ab7-2af5c295cee2.PNG)
-* InciDashboard:
-![incidashboard_captura0](https://user-images.githubusercontent.com/17082987/41882290-6de0800e-78e8-11e8-9bac-be71babcd35b.PNG)
