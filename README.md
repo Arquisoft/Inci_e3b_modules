@@ -28,6 +28,7 @@ Este proyecto ha sido desarrollado como práctica de la asignatura *[Arquitectur
 - [Como probar el proyecto](#como-probar-el-proyecto)
 	 - [Ejecución de las pruebas de aceptación de usuario (User Acceptance Tests)](#ejecuci-n-de-las-pruebas-de-aceptaci-n-de-usuario--user-acceptance-tests-)
 - [Como contribuir al proyecto](#como-contribuir-al-proyecto)
+- [Licencia del proyecto](#licencia-del-proyecto)
 
 ## Como instalar el proyecto
 
@@ -201,4 +202,10 @@ mismas en el fichero de salida: `${project.build.directory}/cucumber/index.html`
 
 La información completa sobre como contribuir al proyecto: código de conducta, 
 flujo de trabajo, etc, puede consultarse en el fichero [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Licencia del proyecto
+
+El contenido completo de este proyecto esta licenciado bajo los terminos de la 
+licencia: *[GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)*. 
+Los detalles completos de la licencia pueden consultarse en el fichero: [LICENSE](LICENSE).
 
