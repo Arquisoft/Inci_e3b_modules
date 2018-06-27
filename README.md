@@ -27,7 +27,7 @@ Este proyecto ha sido desarrollado como práctica de la asignatura *[Arquitectur
 	 - [Capturas de pantalla](#capturas-de-pantalla)
 - [Como probar el proyecto](#como-probar-el-proyecto)
 	 - [Ejecución de las pruebas de aceptación de usuario (User Acceptance Tests)](#ejecuci-n-de-las-pruebas-de-aceptaci-n-de-usuario--user-acceptance-tests-)
-	 
+- [Como contribuir al proyecto](#como-contribuir-al-proyecto)
 
 ## Como instalar el proyecto
 
@@ -196,4 +196,9 @@ mvn -Dit.test=AcceptanceTests -Dcucumber.options="--tags @qa_ready,@login" verif
 
 Concluida la ejecución de las pruebas es posible consultar el resultado de las 
 mismas en el fichero de salida: `${project.build.directory}/cucumber/index.html`
+
+## Como contribuir al proyecto
+
+La información completa sobre como contribuir al proyecto: código de conducta, 
+flujo de trabajo, etc, puede consultarse en el fichero [CONTRIBUTING.md](CONTRIBUTING.md).
 
