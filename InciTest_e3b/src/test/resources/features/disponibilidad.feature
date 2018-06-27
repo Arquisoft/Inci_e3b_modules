@@ -15,4 +15,4 @@ Característica: Disponibilidad de los servicios
       | service       | host      | port |
       | Agents        | localhost | 8090 |
       | InciManager   | localhost | 8091 |
-#     | InciDashboard | localhost | 8092 |
+      | InciDashboard | localhost | 8092 |
