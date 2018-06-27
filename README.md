@@ -27,6 +27,7 @@ Este proyecto ha sido desarrollado como práctica de la asignatura *[Arquitectur
 	 - [Capturas de pantalla](#capturas-de-pantalla)
 - [Como probar el proyecto](#como-probar-el-proyecto)
 	 - [Ejecución de las pruebas de aceptación de usuario (User Acceptance Tests)](#ejecuci-n-de-las-pruebas-de-aceptaci-n-de-usuario--user-acceptance-tests-)
+- [Creditos del proyecto](#creditos-del-proyecto)
 - [Como contribuir al proyecto](#como-contribuir-al-proyecto)
 - [Licencia del proyecto](#licencia-del-proyecto)
 
@@ -204,6 +205,32 @@ mismas en el fichero de salida: `${project.build.directory}/cucumber/index.html`
 
 La información completa sobre como contribuir al proyecto: código de conducta, 
 flujo de trabajo, etc, puede consultarse en el fichero [CONTRIBUTING.md](CONTRIBUTING.md).
+
+
+## Creditos del proyecto
+
+### Contribuidores
+
+| Contribuidor                                         | Usuario GitHUB                               | Grupo prácticas |
+|------------------------------------------------------|----------------------------------------------|-----------------|
+|Diego Álvarez Guinarte <uo251682(AT)uniovi.es>        |[[@Diego_Sh ](https://github.com/UO251682)]   |[[@Arquisoft/course1718_e3b1](https://github.com/orgs/Arquisoft/teams/course1718_e3b1)] |
+|Manuel Junco Diez <uo252010(AT)uniovi.es>             |[@UO252010](https://github.com/UO252010)]     |[[@Arquisoft/course1718_e3b1](https://github.com/orgs/Arquisoft/teams/course1718_e3b1)] |
+|Pablo Gonzalez Martinez <uo245699(AT)uniovi.es>       |[@pablosky5](https://github.com/pablosky5)]   |[[@Arquisoft/course1718_e3b1](https://github.com/orgs/Arquisoft/teams/course1718_e3b1)] |
+|Ivan Suarez Castiñeiras <uo244730(AT)uniovi.es>       |[@UO244730](https://github.com/UO244730)]     |[[@Arquisoft/course1718_e3b1](https://github.com/orgs/Arquisoft/teams/course1718_e3b1)] |
+|Miguel Martínez Serrano \<uo237030(AT)uniovi.es\>     |[[@miguelms95](https://github.com/miguelms95)]|[[@Arquisoft/course1718_e3b2](https://github.com/orgs/Arquisoft/teams/course1718_e3b2)] |
+|José Antonio Marín Álvarez \<uo212006(AT)uniovi.es\>  |[[@TonyMarin](https://github.com/TonyMarin)]  |[[@Arquisoft/course1718_e3b2](https://github.com/orgs/Arquisoft/teams/course1718_e3b2)] |
+|Daniel Martínez Valerinao \<uo252438(AT)uniovi.es\>   |[[@Gemeto](https://github.com/Gemeto)]        |[[@Arquisoft/course1718_e3b2](https://github.com/orgs/Arquisoft/teams/course1718_e3b2)] |
+|Kilian Pérez González \<uo21504(AT)uniovi.es\>        |[[@kilianpg](https://github.com/kilianpg)]    |[[@Arquisoft/course1718_e3b2](https://github.com/orgs/Arquisoft/teams/course1718_e3b2)] |
+|Andrés Ángel González Granda \<uo68216(AT)uniovi.es\>     |[[@AndresAngelGG](https://github.com/@AndresAngelGG)] |[[@Arquisoft/course1718_e3b2](https://github.com/orgs/Arquisoft/teams/course1718_e3b2)] |
+
+### Reconocimientos
+
+- Equipo docente de la asignatura **Arquitectura del Software**:
+  - Jose Emilio Labra Gayo \<labra@uniovi.es\> [[@labra](https://github.com/labra)].
+  - Aquilino Adolfo Juan Fuente \<aajuan@uniovi.es\>
+  - Juan Luis Mateo Cerdan \<mateojuan@uniovi.es\>
+  - Herminio García González [[@herminiogg](https://github.com/herminiogg)].
+ 
 
 ## Licencia del proyecto
 
