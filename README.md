@@ -21,6 +21,10 @@ Este proyecto ha sido desarrollado como práctica de la asignatura *[Arquitectur
     - [Obtención del código fuente](#obtención-del-código-fuente)
     - [Instalación de las dependencias](#instalación-de-las-dependencias)
     - [Reinstalación de las dependencias](#reinstalación-de-las-dependencias)
+- [Como ejecutar el proyecto](#como-ejecutar-el-proyecto)
+    - [Requisitos para ejecutar el proyecto](#requisitos-para-ejecutar-el-proyecto)
+    - [Despliegue automático mediante contenedores Docker](#despliegue-autom-tico-mediante-contenedores-docker)
+	 - [Despliegue manual](#despliegue-manual)
 
 ## Como instalar el proyecto
 
@@ -64,17 +68,14 @@ En caso de ser necesario es posible purgar el repositorio local con las dependen
 mvn dependency:purge-local-repository clean install -U
 ~~~
 
-# Ejecución de todos los módulos
-## Despliegue manual
-* Para arrancar todos los servicios (incluida la base de datos) hay que ejecutar el fichero batch **execute_modules.bat**. 
+## Como ejecutar el proyecto
 
-Este fichero batch lleva a cabo las siguientes acciones:
-1. Elimina los ficheros temporales de kafka (topics, logs etc...) para evitar colisiones y logs corruptos durante la ejecución
-2. Ejecuta una instancia la base de datos HSQLDB
-3. Inicia Apache Zookeeper y Apache Kafka 
-4. Finalmente ejecuta los módulos de Agentes, InciManager e InciDashboard, para así poder testear la funcionalidad completa.
+### Requisitos para ejecutar el proyecto
 
-## Despliegue automático mediante contenedores Docker
+- [Apache Maven](https://maven.apache.org) (versión: >= 3.5).
+- [Docker Engine](https://docs.docker.com) (versión: >= 18.03.1-ce)
+
+### Despliegue automático mediante contenedores Docker
 
 Si se dispone de una instancia de [Docker](https://www.docker.com) ya instalada,
  es posible desplegar automáticamente todos los servicios necesarios utilizando 
@@ -144,6 +145,16 @@ docker image ls
 FOR /f "tokens=*" %%i IN ('docker images --format "{{.ID}}"') DO docker rmi %%i
 pause
 ~~~
+
+### Despliegue manual
+
+Para arrancar todos los servicios (incluida la base de datos) hay que ejecutar el fichero batch **execute_modules.bat**. 
+
+Este fichero batch lleva a cabo las siguientes acciones:
+1. Elimina los ficheros temporales de kafka (topics, logs etc...) para evitar colisiones y logs corruptos durante la ejecución
+2. Ejecuta una instancia la base de datos HSQLDB
+3. Inicia Apache Zookeeper y Apache Kafka 
+4. Finalmente ejecuta los módulos de Agentes, InciManager e InciDashboard, para así poder testear la funcionalidad completa.
 
 ## Como probar el proyecto
 
