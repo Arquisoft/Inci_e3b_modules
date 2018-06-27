@@ -20,7 +20,6 @@
 		<module>Agents_e3b</module>
 		<module>InciManager_e3b</module>
 		<module>InciDashboard_e3b</module>
-		<module>TestIntegration_e3b</module>
 		<module>InciTest_e3b</module>
 	</modules>
 
